@@ -1,11 +1,11 @@
 <template>
   <div class="play-ground">
-    <div class="snake">
+    <div id="snake">
       <i></i>
       <i></i>
       <i></i>
     </div>
-    <div class="food"></div>
+    <div id="food"></div>
 
     <div class="test-button"
       @click="test"
@@ -16,12 +16,22 @@
 </template>
 
 <script lang="ts">
+import { onMounted } from 'vue'
+import Food from './Food'
+
 export default {
   name: 'PlayGround',
   // eslint-disable-next-line
   setup () {
+    let food: Food
+
+    onMounted(() => {
+      food = new Food()
+    })
+
     function test (): void {
-      console.log('test')
+      food.changeLocation()
+      console.log('foodLoc', food.loctionX, food.locationY)
     }
 
     return {
@@ -38,7 +48,7 @@ export default {
   border: 2px solid #000;
   position: relative;
 }
-.snake {
+#snake {
   display: inline-block;
   position: absolute;
   top: 20px;
@@ -53,7 +63,7 @@ export default {
     border: 1px solid #BDD4AB;
   }
 }
-.food {
+#food {
   height: 10px;
   width: 10px;
   background-color: green;
