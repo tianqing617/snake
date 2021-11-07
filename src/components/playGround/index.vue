@@ -25,6 +25,7 @@ export default {
       food = new Food()
     })
 
+    // 测试方法
     function test (): void {
       food.changeLocation()
       console.log('foodLoc', food.loctionX, food.locationY)
