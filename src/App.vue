@@ -1,27 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div class="app-wrapper">
+    <play-ground />
+    <info-panel />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { PlayGround, InfoPanel } from './components'
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
-  }
+    PlayGround,
+    InfoPanel,
+  },
 })
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 360px;
+  height: 420px;
+  border: 10px solid #000;
+  border-radius: 20px;
+  margin: auto;
+  margin-top: 40px;
+  background-color: #BDD4AB;
 }
 </style>
