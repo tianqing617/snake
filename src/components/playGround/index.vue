@@ -7,11 +7,7 @@
     </div>
     <div id="food"></div>
 
-    <div class="test-button"
-      @click="test"
-    >
-      test
-    </div>
+    <div class="test-button" @click="test">test</div>
   </div>
 </template>
 
