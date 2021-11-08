@@ -1,5 +1,5 @@
-import PlayGround from './playGround/index.vue'
-import InfoPanel from './infoPanel/index.vue'
+import PlayGround from './playGround/'
+import InfoPanel from './infoPanel/'
 
 export {
   PlayGround,

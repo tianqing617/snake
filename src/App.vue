@@ -7,7 +7,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { PlayGround, InfoPanel } from './components'
+import { PlayGround, InfoPanel } from './components/'
 
 export default defineComponent({
   name: 'App',
