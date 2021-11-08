@@ -17,8 +17,7 @@ import Food from './Food'
 
 export default {
   name: 'PlayGround',
-  // eslint-disable-next-line
-  setup () {
+  setup (): Record<string, unknown> {
     let food: Food
 
     onMounted(() => {
