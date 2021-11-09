@@ -20,8 +20,8 @@ export default {
   setup(): Record<string, unknown> {
     const infoPanel = new InfoPanel();
     const info = reactive({
-      score: infoPanel.score,
-      level: infoPanel.level,
+      score: infoPanel.gameScore,
+      level: infoPanel.gameLevel,
     });
 
     // function test() {

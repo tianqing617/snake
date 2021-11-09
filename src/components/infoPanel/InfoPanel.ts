@@ -1,43 +1,43 @@
-export default class Score {
-  _score = 0;
-  _level = 1;
+export default class InfoPanel {
+  score = 0;
+  level = 1;
 
-  _maxLevel: number;
-  _upgrade: number;
+  maxLevel: number;
+  upgrade: number;
 
   constructor(maxLevel = 10, upgrade = 10) {
-    this._maxLevel = maxLevel;
-    this._upgrade = upgrade;
+    this.maxLevel = maxLevel;
+    this.upgrade = upgrade;
   }
 
-  get score(): number {
-    return this._score;
+  get gameScore(): number {
+    return this.score;
   }
 
   // set score(num: number) {
-  //   this._score = this._score + num;
+  //   this.score = this.score + num;
   // }
 
-  get level(): number {
-    return this._level;
+  get gameLevel(): number {
+    return this.level;
   }
 
   increaseScore(): {score: number, level: number} {
-    this._score = this._score + 1;
+    this.score = this.score + 1;
     // 控制升级
-    if (this._score % this._upgrade === 0) {
+    if (this.score % this.upgrade === 0) {
       this.upLevel();
     }
 
     return {
-      score: this._score,
-      level: this._level,
+      score: this.score,
+      level: this.level,
     }
   }
 
   upLevel(): void {
-    if (this._level < this._maxLevel) {
-      this._level = this._level + 1;
+    if (this.level < this.maxLevel) {
+      this.level = this.level + 1;
     }
   }
 }
