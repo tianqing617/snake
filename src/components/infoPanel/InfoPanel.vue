@@ -2,22 +2,42 @@
   <ul class="info-panel">
     <li>
       <span class="title">SCORE: </span>
-      <span class="num">3</span>
+      <span class="num">{{info.score}}</span>
     </li>
     <li>
       <span class="title">LEVEL: </span>
-      <span class="num">1</span>
+      <span class="num">{{info.level}}</span>
     </li>
   </ul>
 </template>
 
-<script>
+<script lang="ts">
+import { reactive } from 'vue';
+import InfoPanel from './InfoPanel';
+
 export default {
   name: 'InfoPanel',
+  setup(): Record<string, unknown> {
+    const infoPanel = new InfoPanel();
+    const info = reactive({
+      score: infoPanel.score,
+      level: infoPanel.level,
+    });
+
+    // function test() {
+    //   const { score, level } = infoPanel.increaseScore();
+    //   info.score = score;
+    //   info.level = level;
+    // }
+
+    return {
+      info,
+    }
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .info-panel {
   outline: 1px solid;
   margin-top: 20px;
