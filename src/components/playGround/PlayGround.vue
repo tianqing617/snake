@@ -1,7 +1,10 @@
 <template>
   <div class="play-ground">
     <div id="snake">
-      <i></i>
+      <!-- 蛇头 -->
+      <b></b>
+
+      <!-- 蛇身 -->
       <i></i>
       <i></i>
     </div>
@@ -51,7 +54,7 @@ export default {
   left: 30px;
   height: 10px;
   line-height: 10px;
-  > i {
+  > b, i {
     width: 10px;
     height: 10px;
     background-color: #000;
