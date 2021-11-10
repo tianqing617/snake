@@ -5,12 +5,10 @@
       <b></b>
 
       <!-- 蛇身 -->
-      <i></i>
-      <i></i>
+      <!-- <i></i> -->
+      <!-- <i></i> -->
     </div>
     <div id="food"></div>
-
-    <div class="test-button" @click="test">test</div>
   </div>
 </template>
 
@@ -48,18 +46,14 @@ export default {
   position: relative;
 }
 #snake {
-  display: inline-block;
-  position: absolute;
-  top: 20px;
-  left: 30px;
-  height: 10px;
-  line-height: 10px;
-  > b, i {
+  > b {
     width: 10px;
     height: 10px;
     background-color: #000;
-    display: inline-block;
     border: 1px solid #BDD4AB;
+    top: 110px;
+    left: 30px;
+    position: absolute;
   }
 }
 #food {
@@ -69,14 +63,5 @@ export default {
   top: 40px;
   left: 100px;
   position: absolute;
-}
-.test-button {
-  width: 60px;
-  height: 20px;
-  border: 1px solid;
-  top: 280px;
-  left: 240px;
-  position: absolute;
-  cursor: pointer;
 }
 </style>
