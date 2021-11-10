@@ -27,4 +27,8 @@ export default class GameControl {
     console.log(event);
     this.direction = event.key;
   }
+
+  run(): void {
+    // ArrowRight ArrowLeft ArrowUp ArrowDown
+  }
 }

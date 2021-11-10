@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import { PlayGround, InfoPanel } from './components/'
 import GameControl from './GameControl'
 
@@ -17,8 +17,11 @@ export default defineComponent({
     InfoPanel,
   },
   setup() {
-    const gameControl = new GameControl();
-    console.log('gameControl', gameControl);
+    let gameControl: GameControl;
+    onMounted(() => {
+      gameControl = new GameControl();
+      console.log('gameControl', gameControl);
+    })
   }
 })
 </script>
