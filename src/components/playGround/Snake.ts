@@ -19,13 +19,13 @@ export default class Snake {
     }
   }
 
-  set headPointer(pointer) {
+  set headPointer(pointer: {x: number, y: number}) {
     // 设置蛇头
     console.log('headPointer', pointer);
   }
 
   // 增加蛇的长度
-  increaseBody() {
+  increaseBody(): void {
     // The insertAdjacentHTML() method inserts a text as HTML, into a specified position.
     this.snakeEl.insertAdjacentHTML('beforeend', '<i></i>');
   }
@@ -36,7 +36,7 @@ export default class Snake {
   }
 
   // 检查是否撞到自己
-  checkAccident() {
+  checkAccident(): void {
     //
   }
 }

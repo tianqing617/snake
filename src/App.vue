@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { PlayGround, InfoPanel } from './components/'
+import GameControl from './GameControl'
 
 export default defineComponent({
   name: 'App',
@@ -15,6 +16,10 @@ export default defineComponent({
     PlayGround,
     InfoPanel,
   },
+  setup() {
+    const gameControl = new GameControl();
+    console.log('gameControl', gameControl);
+  }
 })
 </script>
 
