@@ -22,6 +22,8 @@ export default class Snake {
   set headPointer(pointer: {x: number, y: number}) {
     // 设置蛇头
     console.log('headPointer', pointer);
+    this.headEl.style.top = pointer.y + 'px';
+    this.headEl.style.left = pointer.x + 'px';
   }
 
   // 增加蛇的长度
