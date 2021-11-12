@@ -18,22 +18,13 @@ import Food from './Food'
 
 export default {
   name: 'PlayGround',
-  setup (): Record<string, unknown> {
+  setup (): void {
     let food: Food
 
     onMounted(() => {
       food = new Food()
+      console.log('food', food);
     })
-
-    // 测试方法
-    function test (): void {
-      food.changeLocation()
-      console.log('foodLoc', food.loctionX, food.locationY)
-    }
-
-    return {
-      test,
-    }
   }
 }
 </script>
