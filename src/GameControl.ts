@@ -9,6 +9,7 @@ export default class GameControl {
 
   direction = '';
   isAlive = true;
+  setup = 10; // 每次移动的距离
 
   constructor() {
     this.snake = new Snake();
@@ -26,9 +27,34 @@ export default class GameControl {
   keydownHandler(event: KeyboardEvent): void {
     console.log(event);
     this.direction = event.key;
+    this.run();
   }
 
   run(): void {
     // ArrowRight ArrowLeft ArrowUp ArrowDown
+    const pointer = this.snake.headPointer;
+
+    switch (this.direction) {
+      case 'ArrowUp':
+        pointer.y -= 10;
+        break;
+      case 'ArrowDown':
+        pointer.y += 10;
+        break;
+      case 'ArrowLeft':
+        pointer.x -= 10;
+        break;
+      case 'ArrowRight':
+        pointer.x += 10;
+        break;
+    }
+
+    try {
+      this.snake.headPointer = pointer;
+    } catch (error: any) {
+      const message = error.message;
+      console.log(message);
+      this.isAlive = false;
+    }
   }
 }
