@@ -14,12 +14,15 @@ export default class InfoPanel {
     return this.score;
   }
 
-  // set score(num: number) {
-  //   this.score = this.score + num;
-  // }
-
   get gameLevel(): number {
     return this.level;
+  }
+
+  get info(): {score: number, level: number} {
+    return {
+      score: this.score,
+      level: this.level,
+    }
   }
 
   increaseScore(): {score: number, level: number} {
@@ -28,6 +31,8 @@ export default class InfoPanel {
     if (this.score % this.upgrade === 0) {
       this.upLevel();
     }
+
+    console.log('increase', this);
 
     return {
       score: this.score,

@@ -1,3 +1,5 @@
+import { Pointer } from '@/tools';
+
 export default class Food {
   element: HTMLElement
 
@@ -11,6 +13,10 @@ export default class Food {
 
   get locationY (): number {
     return this.element.offsetTop
+  }
+
+  get pointer(): Pointer {
+    return new Pointer(this.element.offsetLeft, this.element.offsetTop);
   }
 
   changeLocation (): void {

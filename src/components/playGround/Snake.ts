@@ -22,6 +22,7 @@ export default class Snake {
   }
 
   set headPointer(pointer: Pointer) {
+    // console.log('pointer', pointer);
     // 设置蛇头
     // console.log('headPointer', pointer);
     this.headEl.style.top = pointer.y + 'px';

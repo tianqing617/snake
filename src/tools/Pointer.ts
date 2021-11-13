@@ -22,4 +22,10 @@ export default class Pointer {
   get y(): number {
     return this.locationY;
   }
+
+  isSame(pointer: Pointer): boolean {
+    return (
+      this.locationX === pointer.x && this.locationY === pointer.y
+    )
+  }
 }

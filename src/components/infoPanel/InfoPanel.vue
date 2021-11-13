@@ -19,16 +19,11 @@ export default {
   name: 'InfoPanel',
   setup(): Record<string, unknown> {
     const infoPanel = new InfoPanel();
-    const info = reactive({
-      score: infoPanel.gameScore,
-      level: infoPanel.gameLevel,
-    });
-
-    // function test() {
-    //   const { score, level } = infoPanel.increaseScore();
-    //   info.score = score;
-    //   info.level = level;
-    // }
+    // const info = reactive({
+    //   score: infoPanel.gameScore,
+    //   level: infoPanel.gameLevel,
+    // });
+    const info = reactive(infoPanel.info);
 
     return {
       info,

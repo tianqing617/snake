@@ -1,3 +1,4 @@
+import { Pointer } from './tools'
 import Snake from './components/playGround/Snake'
 import Food from './components/playGround/Food'
 import InfoPanel from './components/infoPanel/InfoPanel'
@@ -46,8 +47,13 @@ export default class GameControl {
     return 300 - (this.infoPanel.level - 1) * 30;
   }
 
-  checkEat() {
-    //
+  checkEat(pointer: Pointer): void {
+    console.log('checkEat', pointer.isSame(this.food.pointer));
+    if (pointer.isSame(this.food.pointer)) {
+      this.food.changeLocation();
+      this.infoPanel.increaseScore();
+      this.snake.increaseBody();
+    }
   }
 
   run(): void {
@@ -68,6 +74,8 @@ export default class GameControl {
         pointer.x += 10;
         break;
     }
+
+    this.checkEat(pointer);
 
     try {
       this.snake.headPointer = pointer;
