@@ -7,7 +7,8 @@ export default class GameControl {
   food: Food;
   infoPanel: InfoPanel;
 
-  direction = '';
+  timer = -1;
+  direction = 'ArrowRight';
   isAlive = true;
   setup = 10; // 每次移动的距离
 
@@ -22,12 +23,31 @@ export default class GameControl {
   init(): void {
     // 注册键盘事件
     document.addEventListener('keydown', this.keydownHandler.bind(this));
+
+    this.timer = this.initTimer();
+  }
+
+  initTimer(): number {
+    clearInterval(this.timer);
+
+    return window.setInterval(() => {
+      // console.log('setInterval', this)
+      this.run();
+    }, this.getSpeed());
   }
 
   keydownHandler(event: KeyboardEvent): void {
     console.log(event);
     this.direction = event.key;
-    this.run();
+    // this.run();
+  }
+
+  getSpeed(): number {
+    return 300 - (this.infoPanel.level - 1) * 30;
+  }
+
+  checkEat() {
+    //
   }
 
   run(): void {

@@ -1,3 +1,5 @@
+import { Pointer } from '@/tools';
+
 export default class Snake {
   // 蛇的容器
   snakeEl: HTMLElement;
@@ -12,16 +14,16 @@ export default class Snake {
     this.bodyListEl = this.snakeEl.children;
   }
 
-  get headPointer(): {x: number, y: number} {
-    return {
-      x: this.headEl.offsetLeft,
-      y: this.headEl.offsetTop,
-    }
+  get headPointer(): Pointer {
+    return new Pointer(
+      this.headEl.offsetLeft,
+      this.headEl.offsetTop
+    );
   }
 
-  set headPointer(pointer: {x: number, y: number}) {
+  set headPointer(pointer: Pointer) {
     // 设置蛇头
-    console.log('headPointer', pointer);
+    // console.log('headPointer', pointer);
     this.headEl.style.top = pointer.y + 'px';
     this.headEl.style.left = pointer.x + 'px';
   }
