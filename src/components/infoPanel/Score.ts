@@ -1,4 +1,4 @@
-export default class InfoPanel {
+export default class Score {
   score = 0;
   level = 1;
 

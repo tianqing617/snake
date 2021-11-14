@@ -1,13 +1,13 @@
 <template>
   <div class="app-wrapper">
     <play-ground />
-    <info-panel />
+    <info-panel :info="info" />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
-import { PlayGround, InfoPanel } from './components/'
+import { defineComponent, onMounted, reactive } from 'vue'
+import { PlayGround, InfoPanel, Score } from './components/'
 import GameControl from './GameControl'
 
 export default defineComponent({
@@ -18,10 +18,19 @@ export default defineComponent({
   },
   setup() {
     let gameControl: GameControl;
+    let score: Score;
+    let info;
+
     onMounted(() => {
       gameControl = new GameControl();
-      console.log('gameControl', gameControl);
-    })
+      score = gameControl.scoreIns;
+      info = reactive(score.info);
+      console.log('gameControl', gameControl, score.info);
+    });
+
+    return {
+      info,
+    }
   }
 })
 </script>

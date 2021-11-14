@@ -1,1 +1,7 @@
-export { default } from './InfoPanel.vue'
+import InfoPanel from './InfoPanel.vue'
+import Score from './Score'
+
+export {
+  Score,
+  InfoPanel,
+}

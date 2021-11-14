@@ -13,17 +13,17 @@
 
 <script lang="ts">
 import { reactive } from 'vue';
-import InfoPanel from './InfoPanel';
+import Score from './Score';
 
 export default {
   name: 'InfoPanel',
   setup(): Record<string, unknown> {
-    const infoPanel = new InfoPanel();
+    const score = new Score();
     // const info = reactive({
     //   score: infoPanel.gameScore,
     //   level: infoPanel.gameLevel,
     // });
-    const info = reactive(infoPanel.info);
+    const info = reactive(score.info);
 
     return {
       info,

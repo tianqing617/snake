@@ -1,12 +1,12 @@
 import { Pointer } from './tools'
 import Snake from './components/playGround/Snake'
 import Food from './components/playGround/Food'
-import InfoPanel from './components/infoPanel/InfoPanel'
+import Score from './components/infoPanel/Score'
 
 export default class GameControl {
   snake: Snake;
   food: Food;
-  infoPanel: InfoPanel;
+  score: Score;
 
   timer = -1;
   direction = 'ArrowRight';
@@ -16,9 +16,13 @@ export default class GameControl {
   constructor() {
     this.snake = new Snake();
     this.food = new Food();
-    this.infoPanel = new InfoPanel();
+    this.score = new Score();
 
     this.init();
+  }
+
+  get scoreIns(): Score {
+    return this.score;
   }
 
   init(): void {
@@ -44,14 +48,14 @@ export default class GameControl {
   }
 
   getSpeed(): number {
-    return 300 - (this.infoPanel.level - 1) * 30;
+    return 300 - (this.score.level - 1) * 30;
   }
 
   checkEat(pointer: Pointer): void {
     console.log('checkEat', pointer.isSame(this.food.pointer));
     if (pointer.isSame(this.food.pointer)) {
       this.food.changeLocation();
-      this.infoPanel.increaseScore();
+      this.score.increaseScore();
       this.snake.increaseBody();
     }
   }
