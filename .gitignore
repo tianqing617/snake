@@ -24,3 +24,5 @@ pnpm-debug.log*
 
 # Custom
 webpack.config.*.js
+package-lock.json
+yarn.lock
