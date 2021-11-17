@@ -1,3 +1,4 @@
+import PubSub from 'pubsub-js'
 import { Pointer } from './tools'
 import Snake from './components/playGround/Snake'
 import Food from './components/playGround/Food'
@@ -57,6 +58,8 @@ export default class GameControl {
       this.food.changeLocation();
       this.score.increaseScore();
       this.snake.increaseBody();
+
+      PubSub.publish('bus', this.score.info);
     }
   }
 

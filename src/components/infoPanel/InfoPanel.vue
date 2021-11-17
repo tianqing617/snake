@@ -12,22 +12,23 @@
 </template>
 
 <script lang="ts">
-import { reactive } from 'vue';
-import Score from './Score';
-
 export default {
   name: 'InfoPanel',
+  props: {
+    info: {
+      type: Object,
+    }
+  },
   setup(): Record<string, unknown> {
-    const score = new Score();
+    // Record<string, unknown>
+    // const score = new Score();
     // const info = reactive({
     //   score: infoPanel.gameScore,
     //   level: infoPanel.gameLevel,
     // });
-    const info = reactive(score.info);
+    // const info = reactive(score.info);
 
-    return {
-      info,
-    }
+    return {}
   }
 }
 </script>
