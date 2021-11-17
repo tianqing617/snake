@@ -1,5 +1,6 @@
 import PubSub from 'pubsub-js'
 import { Pointer } from './tools'
+import { DirectionEnum } from './enums'
 import Snake from './components/playGround/Snake'
 import Food from './components/playGround/Food'
 import Score from './components/infoPanel/Score'
@@ -10,7 +11,7 @@ export default class GameControl {
   score: Score;
 
   timer = -1;
-  direction = 'ArrowRight';
+  direction = DirectionEnum.RIGHT;
   isAlive = true;
   setup = 10; // 每次移动的距离
 
@@ -18,6 +19,7 @@ export default class GameControl {
     this.snake = new Snake();
     this.food = new Food();
     this.score = new Score();
+    console.log(DirectionEnum)
 
     this.init();
   }
@@ -44,9 +46,19 @@ export default class GameControl {
   }
 
   keydownHandler(event: KeyboardEvent): void {
-    console.log(event);
-    // if ()
-    this.direction = event.key;
+    // console.log(event);
+    const key = Object.keys(DirectionEnum).find(key => {
+      // @ts-ignore
+      return DirectionEnum[key] === event.key;
+    });
+
+    console.log('directionType', key);
+
+    if (key) {
+      // @ts-ignore
+      this.direction = DirectionEnum[key];
+    }
+
     // this.run();
   }
 
