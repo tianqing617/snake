@@ -23,6 +23,9 @@ export default class Snake {
 
   set headPointer(pointer: Pointer) {
     // console.log('pointer', pointer);
+    // 身体跟随蛇头移动
+    this.moveBody();
+
     // 设置蛇头
     // console.log('headPointer', pointer);
     this.headEl.style.top = pointer.y + 'px';
@@ -37,7 +40,21 @@ export default class Snake {
 
   // 移动蛇身
   moveBody(): void {
-    //
+    /**
+     * 将后边的身体设置为 前面身体的位置
+     * 第4节 = 第3节的位置
+     * 第3节 = 第2节的位置
+     * 第2节 = 蛇头的位置
+     */
+    for (let i = this.bodyListEl.length - 1; i > 0; i--) {
+      const currentEl = this.bodyListEl.item(i) as HTMLElement;
+      const previousEl = this.bodyListEl.item(i - 1) as HTMLElement;
+
+      if (currentEl && previousEl) {
+        currentEl.style.left = previousEl.offsetLeft + 'px';
+        currentEl.style.top = previousEl.offsetTop + 'px';
+      }
+    }
   }
 
   // 检查是否撞到自己

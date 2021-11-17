@@ -38,12 +38,14 @@ export default class GameControl {
 
     return window.setInterval(() => {
       // console.log('setInterval', this)
+      // !!!蛇爬动
       this.run();
     }, this.getSpeed());
   }
 
   keydownHandler(event: KeyboardEvent): void {
     console.log(event);
+    // if ()
     this.direction = event.key;
     // this.run();
   }

@@ -36,17 +36,26 @@ export default {
   border: 2px solid #000;
   position: relative;
 }
-#snake {
-  > b {
+// 蛇头和蛇身样式
+::v-deep(#snake) {
+  > b, i {
     width: 10px;
     height: 10px;
     background-color: #000;
     border: 1px solid #BDD4AB;
-    top: 110px;
-    left: 30px;
     position: absolute;
   }
+  > b {
+    top: 110px;
+    left: 30px;
+  }
+  > i {
+    background-color: red;
+    top: 1px;
+    left: 1px;
+  }
 }
+
 #food {
   height: 10px;
   width: 10px;
