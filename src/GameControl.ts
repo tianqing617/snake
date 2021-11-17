@@ -103,6 +103,7 @@ export default class GameControl {
     } catch (error: any) {
       const message = error.message;
       console.log(message);
+      clearInterval(this.timer);
       this.isAlive = false;
     }
   }

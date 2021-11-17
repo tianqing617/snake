@@ -23,6 +23,10 @@ export default class Snake {
 
   set headPointer(pointer: Pointer) {
     // console.log('pointer', pointer);
+    // 处理边界问题
+    if (pointer.x < 0 || pointer.x > 290 || pointer.y < 0 || pointer.y > 290) {
+      throw Error('GAME OVER !');
+    }
     // 身体跟随蛇头移动
     this.moveBody();
 
