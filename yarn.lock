@@ -1098,6 +1098,11 @@
   resolved "https://registry.nlark.com/@types/parse-json/download/@types/parse-json-4.0.0.tgz?cache=0&sync_timestamp=1629708684134&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fparse-json%2Fdownload%2F%40types%2Fparse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha1-L4u0QUNNFjs1+4/9zNcTiSf/uMA=
 
+"@types/pubsub-js@^1.8.3":
+  version "1.8.3"
+  resolved "https://registry.npmmirror.com/@types/pubsub-js/download/@types/pubsub-js-1.8.3.tgz#f480a9e4f72f50e1e3cc598ef1b32f3bfbbcd6b6"
+  integrity sha1-9ICp5PcvUOHjzFmO8bMvO/u81rY=
+
 "@types/q@^1.5.1":
   version "1.5.5"
   resolved "https://registry.nlark.com/@types/q/download/@types/q-1.5.5.tgz?cache=0&sync_timestamp=1629708761534&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fq%2Fdownload%2F%40types%2Fq-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
@@ -7284,6 +7289,11 @@ public-encrypt@^4.0.0:
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
     safe-buffer "^5.1.2"
+
+pubsub-js@^1.9.4:
+  version "1.9.4"
+  resolved "https://registry.npmmirror.com/pubsub-js/download/pubsub-js-1.9.4.tgz?cache=0&sync_timestamp=1636629750665&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fpubsub-js%2Fdownload%2Fpubsub-js-1.9.4.tgz#5c8678600e34e95b1269e96c17e1b51dab3ecb5a"
+  integrity sha512-hJYpaDvPH4w8ZX/0Fdf9ma1AwRgU353GfbaVfPjfJQf1KxZ2iHaHl3fAUw1qlJIR5dr4F3RzjGaWohYUEyoh7A==
 
 pump@^2.0.0:
   version "2.0.1"
