@@ -105,6 +105,8 @@ export default class GameControl {
       console.log(message);
       clearInterval(this.timer);
       this.isAlive = false;
+
+      PubSub.publish('result', message);
     }
   }
 }
