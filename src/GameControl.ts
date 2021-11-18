@@ -11,7 +11,7 @@ export default class GameControl {
   score: Score;
 
   timer = -1;
-  direction = DirectionEnum.RIGHT;
+  direction = DirectionEnum.ArrowRight;
   isAlive = true;
   setup = 10; // 每次移动的距离
 
@@ -46,20 +46,23 @@ export default class GameControl {
   }
 
   keydownHandler(event: KeyboardEvent): void {
-    // console.log(event);
-    const key = Object.keys(DirectionEnum).find(key => {
+    console.log(event);
+    // TODO: 枚举，判断是否属于枚举中的某项目的方案
+    console.log('enum', DirectionEnum);
+    const keys = Object.keys(DirectionEnum);
+    // 是否是此四个键：ArrowRight ArrowLeft ArrowUp ArrowDown
+    if (keys.includes(event.key)) {
       // @ts-ignore
-      return DirectionEnum[key] === event.key;
-    });
+      console.log('num', DirectionEnum[event.key], this.direction);
 
-    console.log('directionType', key);
-
-    if (key) {
-      // @ts-ignore
-      this.direction = DirectionEnum[key];
+      // @ts-ignore 2 表示枚举中间值
+      const available = (DirectionEnum[event.key] > 2 && this.direction < 2) || (DirectionEnum[event.key] < 2 && this.direction > 2);
+      if (available) {
+        // 大于2，表示左右；小于2，表示上下
+        // @ts-ignore
+        this.direction = DirectionEnum[event.key];
+      }
     }
-
-    // this.run();
   }
 
   getSpeed(): number {
@@ -82,16 +85,16 @@ export default class GameControl {
     const pointer = this.snake.headPointer;
 
     switch (this.direction) {
-      case 'ArrowUp':
+      case DirectionEnum.ArrowUp:
         pointer.y -= 10;
         break;
-      case 'ArrowDown':
+      case DirectionEnum.ArrowDown:
         pointer.y += 10;
         break;
-      case 'ArrowLeft':
+      case DirectionEnum.ArrowLeft:
         pointer.x -= 10;
         break;
-      case 'ArrowRight':
+      case DirectionEnum.ArrowRight:
         pointer.x += 10;
         break;
     }
