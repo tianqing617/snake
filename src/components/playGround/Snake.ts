@@ -25,7 +25,7 @@ export default class Snake {
     // console.log('pointer', pointer);
     // 处理边界问题
     if (pointer.x < 0 || pointer.x > 290 || pointer.y < 0 || pointer.y > 290) {
-      throw Error('GAME OVER !');
+      throw Error('撞到墙了！');
     }
     // 身体跟随蛇头移动
     this.moveBody();
@@ -34,6 +34,9 @@ export default class Snake {
     // console.log('headPointer', pointer);
     this.headEl.style.top = pointer.y + 'px';
     this.headEl.style.left = pointer.x + 'px';
+
+    // 检查是否撞到自己
+    this.checkAccident();
   }
 
   // 增加蛇的长度
@@ -63,6 +66,15 @@ export default class Snake {
 
   // 检查是否撞到自己
   checkAccident(): void {
-    //
+    const headPointer = this.headPointer;
+
+    for (let i = 3; i < this.bodyListEl.length; i++) {
+      const currentPartEl = this.bodyListEl[i] as HTMLElement;
+      const currentPointer = new Pointer(currentPartEl.offsetLeft, currentPartEl.offsetTop);
+
+      if (headPointer.isEqual(currentPointer)) {
+        throw new Error('撞到自己了！');
+      }
+    }
   }
 }

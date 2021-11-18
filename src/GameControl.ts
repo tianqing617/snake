@@ -67,8 +67,8 @@ export default class GameControl {
   }
 
   checkEat(pointer: Pointer): void {
-    console.log('checkEat', pointer.isSame(this.food.pointer));
-    if (pointer.isSame(this.food.pointer)) {
+    console.log('checkEat', pointer.isEqual(this.food.pointer));
+    if (pointer.isEqual(this.food.pointer)) {
       this.food.changeLocation();
       this.score.increaseScore();
       this.snake.increaseBody();
