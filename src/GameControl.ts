@@ -51,6 +51,7 @@ export default class GameControl {
     console.log('enum', DirectionEnum);
     const keys = Object.keys(DirectionEnum);
     // 是否是此四个键：ArrowRight ArrowLeft ArrowUp ArrowDown
+    // TODO: 优化：DirectionEnum[event.key] 若存在，则属性上下左右四个按钮
     if (keys.includes(event.key)) {
       // @ts-ignore
       console.log('num', DirectionEnum[event.key], this.direction);
